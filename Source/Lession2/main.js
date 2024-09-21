@@ -136,3 +136,39 @@ var b = {...a}; // 1
 a.value = 2;
 console.log(b.value); // 1
 
+// Nullish
+
+var text = "truong"; // undefined, null
+
+// text = text ?? 'default value';
+text ??= 'default'; // text không có giá trị => text = default
+
+// console.log(text);
+
+// optional chaining
+var obj ={
+    name: "truongdx"
+}
+
+console.log((obj.name)); // truongdx
+console.log((obj.name)); // undefined
+console.log((obj.child?.name));
+
+// if(obj.child){
+//     console.log((obj.child.name));
+//     if(obj.child.name){
+//         console.log(obj.child.name.value);
+//     }
+// }
+
+
+// module import export
+import title, {home,greeting} from './service.js';
+
+console.log(title);
+console.log(home);
+greeting();
+
+
+
+
