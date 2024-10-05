@@ -9,9 +9,9 @@ console.log(3);
 
 // call api, setTimeout, setInterval, load, click,... JS xử lí bất đồng bộ
 
-setTimeout(() => {
-    console.log(2);
-}, 3000); // chờ 3s -> ()=>{}
+// setTimeout(() => {
+//     console.log(2);
+// }, 3000); // chờ 3s -> ()=>{}
 
 console.log(3);
 
@@ -42,6 +42,132 @@ console.log(3);
  * promise
  * async | await
  */
+
+// callback: hàm gọi lại hàm khác, truyền qua tham số của hàm đó
+
+// function sayHello(name) {
+//     console.log(`Hello ${name}`);
+// }
+
+// function greeting(callback) {
+//     callback("Truongdx");
+// }
+
+// greeting(sayHello);
+// greeting((name)=>{
+//     console.log(`Hello ${name} 2`);
+// })
+
+// fake 1 tác vụ bất đồng bộ
+function delay(ms, callback) {
+    setTimeout(() => {
+        const data = "Hoàn thành tác vụ bất đồng bộ";
+        callback(data)
+    }, ms)
+}
+
+function doingCallback() {
+    console.log("Viec 1");
+    delay(1500, (data) => {
+        console.log(data);
+        console.log("Viec 2");
+
+        delay(2000, (data) => {
+            console.log(data);
+            console.log("Viec 3");
+        })
+    })
+}
+doingCallback();
+
+// promise: thành công | thất bại
+// const myPromise = new Promise((resolve, reject) => {
+//     const isCheck = true;
+//     if (isCheck) {
+//         resolve("Success")
+//     } else {
+//         reject("Fail")
+//     }
+// })
+// // Thực thi
+// myPromise
+//     .then((data) => {
+//         console.log(data)
+//     })
+//     .catch((error)=>{
+//         console.log(error)
+//     })
+//     .finally(()=>{
+//         console.log("Done")
+//     })
+
+function delay(ms){
+    return new Promise((resolve,reject)=>{
+        const isCheck = true;
+        setTimeout(()=>{
+            if(isCheck){
+                resolve("Hoàn thành tác vụ bất đồng bộ")
+            }else{
+                reject("Thất bại")
+            }
+        },ms)
+    })
+}
+
+function doingPromise(){
+    console.log("Viec 1");
+    delay(2000)
+    .then((data)=>{
+        console.log(data);
+        console.log("Viec 2");
+        return delay(1000);
+    })
+    .then((data)=>{
+        console.log(data);
+        console.log("Viec 3");
+        return delay(1000);
+    })
+    .then((data)=>{
+        console.log(data);
+        console.log("Viec 4");
+        return delay(1000);
+    })
+    .catch(error=>
+        console.log(error)
+    )
+    .finally()
+}
+
+// doingPromise();
+
+
+// async | await
+async function doingAsync(){
+    console.log("Viec 1");
+    const data = await delay(1500);
+    console.log(data);
+    console.log("Viec 2");
+
+    const data1 = await delay(1500);
+    console.log(data);
+    console.log("Viec 3");
+}
+doingAsync();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
