@@ -19,29 +19,22 @@
       "image": "https://cdn.hoanghamobile.com/Uploads/2024/07/11/z-flip6-thumb.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
     },
     {
-<<<<<<< HEAD
       "name": "sản phẩm 4",
       "quantity": 40,
       "image": "https://cdn.hoanghamobile.com/Uploads/2024/09/10/ip16-xanh-mong-ket.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;",
       "id": "cyu2"
     },
     {
-      "id": "4669",
-      "name": "asdasd",
+      "name": "Xiaomi Redmi Note 12 Turbo (Snapdragon 7+ Gen 2)",
       "quantity": 1,
-      "image": "https://mobilecity.vn/dien-thoai/xiaomi-14-snap-8-gen-2-android-13.html"
-=======
-      "id": "cyu2",
-      "name": "sản phẩm 4",
-      "quantity": 40,
-      "image": "https://cdn.hoanghamobile.com/Uploads/2024/09/10/ip16-xanh-mong-ket.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+      "image": "https://cdn.mobilecity.vn/mobilecity-vn/images/2023/03/w250/xiaomi-redmi-note-12-turbo-edition-trang.jpg.webp",
+      "id": "4669"
     },
     {
-      "name": "chinhpd5 new",
-      "quantity": 200,
-      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-      "id": "56b0"
->>>>>>> 621a0a6af7d14df10ef1a71aa67a09fc194e206a
+      "name": "Xiaomi Redmi Note 13 5G China (Dimensity 6080)",
+      "quantity": 123,
+      "image": "https://cdn.mobilecity.vn/mobilecity-vn/images/2023/09/w250/xiaomi-redmi-note-13-5g-trang.jpg.webp",
+      "id": "1f0b"
     }
   ]
 }
