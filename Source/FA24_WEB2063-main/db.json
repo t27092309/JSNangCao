@@ -7,10 +7,10 @@
       "image": "https://cdn.hoanghamobile.com/Uploads/2024/01/03/redmi-note-13-pro-plus-5g.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
     },
     {
-      "id": "2",
       "name": "Sản phẩm 2",
       "quantity": 20,
-      "image": "https://cdn.hoanghamobile.com/Uploads/2024/09/10/iphone-16-pro-sa-mac-1.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+      "image": "https://cdn.mobilecity.vn/mobilecity-vn/images/2023/08/w250/iphone-13-pro-max-old-blue.jpg.webp",
+      "id": "2"
     },
     {
       "id": "ca32",
@@ -25,10 +25,10 @@
       "id": "cyu2"
     },
     {
-      "id": "4669",
-      "name": "asdasd",
-      "quantity": 1,
-      "image": "https://mobilecity.vn/dien-thoai/xiaomi-14-snap-8-gen-2-android-13.html"
+      "name": "Xiaomi Redmi Note 12 Turbo (Snapdragon 7+ Gen 2)",
+      "quantity": 123,
+      "image": "https://cdn.mobilecity.vn/mobilecity-vn/images/2023/03/w250/xiaomi-redmi-note-12-turbo-edition-trang.jpg.webp",
+      "id": "d6de"
     }
   ]
 }
