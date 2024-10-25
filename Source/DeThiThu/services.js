@@ -1,58 +1,50 @@
-export const getAllProduct = async()=>{
-    try{
+export const getAllProduct = async () => {
+    try {
         const res = await fetch(`http://localhost:3000/products`);
         const data = await res.json();
         return data;
-    }catch(error){
-        alert("Error")
-    }
+    } catch { }
 }
 
-export const getProductById = async(id)=>{
-    try{
+export const getElementById = async (id) => {
+    try {
         const res = await fetch(`http://localhost:3000/products/${id}`);
         const data = await res.json();
         return data;
-    }catch(error){
-        alert("Get Product Error")
-    }
+    } catch { }
 }
 
-export const deleteProduct = async(id)=>{
-    try{
-        await fetch(`http://localhost:3000/products/${id}`,{
-            method: "delete"
+export const deleteProduct = async (id) => {
+    try {
+        await fetch(`http://localhost:3000/products/${id}`, {
+            method: 'delete'
         })
-        alert("Delete successfully")
-    }catch(error){
-        alert("Delete failed")
-    }
+        alert("delete");
+    }catch{}
 }
 
 export const addProduct = async(data)=>{
     try{
-        await fetch(`http://localhost:3000/products`,{
-            method: "post",
+        await fetch(`http://localhost:3000/products`, {
+            method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-    }catch(error){
-        alert("Add failed")
-    }
+        alert("delete");
+    }catch{}
 }
 
 export const updateProduct = async(id,data)=>{
     try{
-        await fetch(`http://localhost:3000/products/${id}`,{
+        await fetch(`http://localhost:3000/products/${id}`, {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-    }catch(error){
-        alert("Update failed")
-    }
+        alert("delete");
+    }catch{}
 }
