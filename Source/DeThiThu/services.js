@@ -6,7 +6,7 @@ export const getAllProduct = async () => {
     } catch { }
 }
 
-export const getElementById = async (id) => {
+export const getProductById = async (id) => {
     try {
         const res = await fetch(`http://localhost:3000/products/${id}`);
         const data = await res.json();
