@@ -1,12 +1,12 @@
 import { getAllProduct, getProductById, deleteProduct, addProduct, updateProduct } from "./services.js";
 const app = {
-    renderProductList: async function(){
+    renderProductList: async function () {
         const data = await getAllProduct();
         // console.log(data);
-        const proList = data?.map((item, index)=>{
+        const proList = data?.map((item, index) => {
             return `
                 <tr>
-                    <th scope="row">${index+1}</th>
+                    <th scope="row">${index + 1}</th>
                     <td>${item.name}</td>
                     <td>${item.quantity}</td>
                     <td><image src="${item.image}" style="width: 100px;" alt=""></td>
@@ -21,23 +21,23 @@ const app = {
         this.handleDelete();
         this.handleEditProduct();
     },
-    handleDelete: function(){
+    handleDelete: function () {
         const btnDelete = document.querySelectorAll('.btn_delete');
-        btnDelete.forEach((item)=>{
+        btnDelete.forEach((item) => {
             // console.log(btnDelete)
-            item.addEventListener('click',()=>{
+            item.addEventListener('click', () => {
                 const id = item.getAttribute("data-id");
-                if(window.confirm("Delete???")){
+                if (window.confirm("Delete???")) {
                     deleteProduct(id);
                 }
             })
         })
     },
-    renderAddProduct: function(){
+    renderAddProduct: function () {
         const btnAdd = document.getElementById('btn_add');
-        btnAdd.addEventListener('click',()=>{
+        btnAdd.addEventListener('click', () => {
             const content = document.getElementById('content');
-            content.innerHTML=`
+            content.innerHTML = `
                     <form action="" id="form">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -56,16 +56,34 @@ const app = {
                     </form>
             `
             const form = document.getElementById('form');
-            form.addEventListener('submit',(event)=>{
+            form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 this.handleAddProduct();
             })
         })
     },
-    handleAddProduct: async function(){
+    handleAddProduct: async function () {
         const inputName = document.getElementById('name')
         const inputQuantity = document.getElementById('quantity')
         const inputImg = document.getElementById('image')
+
+        if (!inputName.value.trim()) {
+            alert("Cần nhập thông tin tên sản phẩm");
+            inputName.focus(); // focus vào ô input đang bị lỗi
+            return; // ngăn chặn thực thi các tác vụ tiếp theo
+        }
+
+        if (!inputQuantity.value.trim()) {
+            alert("Cần nhập thông tin số lượng sản phẩm");
+            inputQuantity.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
+
+        if (!inputImage.value.trim()) {
+            alert("Cần nhập thông tin hình ảnh sản phẩm");
+            inputImage.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
 
         const data = {
             name: inputName.value,
@@ -77,17 +95,17 @@ const app = {
         alert("Add successfully");
     },
 
-    handleEditProduct: function(){
+    handleEditProduct: function () {
         const btnEdit = document.querySelectorAll('.btn_edit');
-        btnEdit.forEach((item)=>{
+        btnEdit.forEach((item) => {
             // console.log(btnEdit)
-            item.addEventListener('click', async()=>{
+            item.addEventListener('click', async () => {
                 // console.log(item)
                 const id = item.dataset.id;
                 const product = await getProductById(id);
                 // console.log(product);
                 const content = document.getElementById('content');
-                content.innerHTML=`
+                content.innerHTML = `
                     <form action="" id="form">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -106,17 +124,35 @@ const app = {
                     </form>
                 `
                 const form = document.getElementById('form');
-                form.addEventListener('submit',(event)=>{
+                form.addEventListener('submit', (event) => {
                     event.preventDefault();
                     this.handleUpdateProduct(id);
                 })
             })
         })
     },
-    handleUpdateProduct: async function(id){
+    handleUpdateProduct: async function (id) {
         const inputName = document.getElementById('name')
         const inputQuantity = document.getElementById('quantity')
         const inputImg = document.getElementById('image')
+
+        if(!inputName.value.trim()){
+            alert("Cần nhập thông tin tên sản phẩm");
+            inputName.focus(); // focus vào ô input đang bị lỗi
+            return; // ngăn chặn thực thi các tác vụ tiếp theo
+        }
+
+        if(!inputQuantity.value.trim()){
+            alert("Cần nhập thông tin số lượng sản phẩm");
+            inputQuantity.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
+
+        if(!inputImage.value.trim()){
+            alert("Cần nhập thông tin hình ảnh sản phẩm");
+            inputImage.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
 
         const data = {
             name: inputName.value,
@@ -125,10 +161,10 @@ const app = {
         }
         // console.log(data)
 
-        await updateProduct(id,data);
+        await updateProduct(id, data);
         alert("Update successfully");
     },
-    start: function(){
+    start: function () {
         this.renderProductList();
         this.renderAddProduct();
     }
